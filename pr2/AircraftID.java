@@ -14,7 +14,8 @@ private String alpha, beta;
 		this.beta = beta.toUpperCase();
 	}
 
-	public String getAlpha () {return this.alpha;}
+	// no els podem fer servir
+	public String getAlpha () {return this.alpha;} 
 	public String getBeta () {return this.beta;} 
 	
 	public int compareTo(AircraftID other) {
