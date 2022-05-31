@@ -50,8 +50,8 @@ public class AirRegisterImp implements AirRegister {
     public SortedSet<Company> findCompanyByType(AircraftType t) { 
     	SortedSet<Company> tmp=new TreeSet<Company>();
     	for (Map.Entry<Company, TreeSet<Aircraft>> contract: companies.entrySet()) {
-			for(Aircraft a:contract.getValue()) 
-				if (a.getType().equals(t)) tmp.add(contract.getKey());
+    		if(contract.getValue().stream().anyMatch(a->a.getType().equals(t)))
+				tmp.add(contract.getKey());
 		}
         return tmp;
     	

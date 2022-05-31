@@ -69,7 +69,7 @@ public class Test {
 		
 		iniciar("Prova RegisterImp");
 		
-		informar("creació de registre...");
+		informar("creaciï¿½ de registre...");
 		AirRegisterImp registre = new AirRegisterImp();
 		informar("...registre creat\n");
 		
@@ -111,7 +111,7 @@ public class Test {
 			for (Aircraft aircraft : aircrafts) {
 				try {
 					registre.registerAircraft(unknownCompanies[i], aircraft);
-					notificarError("avio registrat a companyia inexistent. S'esperava excepció UnknownCompanyException.", SORTIR);
+					notificarError("avio registrat a companyia inexistent. S'esperava excepciï¿½ UnknownCompanyException.", SORTIR);
 				}
 				catch(UnknownCompanyException e) {}
 				i = (i+1)%unknownCompanies.length;
@@ -169,7 +169,7 @@ public class Test {
 				for (Aircraft aircraft : theRegisteredAircrafts) {
 					try {
 						registre.registerAircraft(other, aircraft);
-						notificarError("avio ja registrat a diferent companyia. S'esperava excepció DifferentCompanyException.", SORTIR);
+						notificarError("avio ja registrat a diferent companyia. S'esperava excepciï¿½ DifferentCompanyException.", SORTIR);
 					}
 					catch(DifferentCompanyException e) {}
 				}
@@ -256,9 +256,7 @@ public class Test {
 		informar("...findCompanyByType comportament aparentment correcte\n");
 		
 		//-------------------------------------------------------------
-		
-		
-		
+				
 		informar("registeredAircrafts...");
 		try {
 			for (Company company : all.keySet()) {
