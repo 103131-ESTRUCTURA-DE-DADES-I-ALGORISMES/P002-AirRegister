@@ -35,7 +35,7 @@ public class AirRegisterImp implements AirRegister {
     	SortedSet<Company> tmp=new TreeSet<Company>();
     	for (Map.Entry<Company, TreeSet<Aircraft>> contract: companies.entrySet()) {
     		if(contract.getValue().stream().anyMatch(a->a.getType().equals(t))) tmp.add(contract.getKey());
-		}
+	}
         return tmp; //Solucio massa OP: return companies.entrySet().stream().filter(e->e.getValue().stream().anyMatch(a->a.getType().equals(t))).map(c->c.getKey()).collect(Collectors.toCollection(TreeSet::new));
     }
 }
