@@ -7,51 +7,82 @@ import java.util.*;
 public class Test {
 	
 	public static void main (String [] args) {
+		long time = System.currentTimeMillis();
+		int l = 500000;
+		Company [] companies = new Company[l];
+		Random r = new Random();
+
+		for(int i=0; i<l; i++){
+			companies[i] = new Company("Company"+i, "Address"+i);
+		}
+
+		Company [] unknownCompanies = new Company[l];
+
+		for(int i=0; i<l; i++){
+			unknownCompanies[i] = new Company("unknowCompany"+i, "unknowAddress"+i);
+		}
+
+		// Company [] companies = {
+		// 		new Company("AIR MEATBALL","Canada"),
+		// 		new Company("AEROPLOF","Russia"),
+		// 		new Company("LIMPBIRD","North Korea"),
+		// 		new Company("FEATHERLESS","Spain")
+		// };
 		
-		Company [] companies = {
-				new Company("AIR MEATBALL","Canada"),
-				new Company("AEROPLOF","Russia"),
-				new Company("LIMPBIRD","North Korea"),
-				new Company("FEATHERLESS","Spain")
-		};
+		// Company [] unknownCompanies = {
+		// 		new Company("FLY HIGH","North Korea"),
+		// 		new Company("AIR xMEATBALL","Canada"),
+		// 		new Company("LIMPBRD","North Korea"),
+		// 		new Company("FEATHERLES","Spain")
+		// };
 		
-		Company [] unknownCompanies = {
-				new Company("FLY HIGH","North Korea"),
-				new Company("AIR xMEATBALL","Canada"),
-				new Company("LIMPBRD","North Korea"),
-				new Company("FEATHERLES","Spain")
-		};
+		TreeSet [] sets = new TreeSet[l];
+
+		Aircraft [] aircrafts = new Aircraft[l];
+
+		for(int i=0; i<l;i++){
+			aircrafts[i] = new Aircraft(
+				"Aircraft"+i,
+				r.nextInt(1977, 2010),
+				AircraftType.values()[r.nextInt(AircraftType.values().length)], 
+				"arc",
+				"000"+i);
+		}
 		
-		TreeSet [] sets = new TreeSet[companies.length];
-		
-		Aircraft [] aircrafts = {
-			new Aircraft("Flying Saucer", 1999, AircraftType.TWO_ENG, "arc", "0001"),
-			new Aircraft("Fat goose", 2005, AircraftType.FOUR_ENG, "arc", "0002"),
-			new Aircraft("Stella ", 2010, AircraftType.FOUR_ENG, "zet", "0001"),
-			new Aircraft("Sky Queen", 1980, AircraftType.SEV_BLADE_PROP, "kad", "0001"),
-			new Aircraft("Robin & Batman", 2000, AircraftType.ONE_BLADE_PROP, "kad", "0005"),
-			new Aircraft("Pink heavens", 1997, AircraftType.ONE_ENG, "kad", "0009"),
-			new Aircraft("Dizzy wizzy", 2012, AircraftType.ONE_BLADE_PROP, "kad", "0022"),
-			new Aircraft("Rainbow candy", 2008, AircraftType.TWO_ENG, "arc", "00021"),
-			new Aircraft("Squared light", 2010, AircraftType.FOUR_ENG, "arc", "0033"),
-			new Aircraft("Desiree", 2007, AircraftType.TWO_ENG, "zet", "00011"),
-			new Aircraft("Candy crush", 2013, AircraftType.TWO_ENG, "zet", "00015"),
-			new Aircraft("Pop Corn Wings", 1996, AircraftType.ONE_BLADE_PROP, "arc", "00045"),
-			new Aircraft("Flying Kiss", 2001, AircraftType.ONE_BLADE_PROP, "arc", "00046"),
-			new Aircraft("Flying French Kiss", 2009, AircraftType.ONE_ENG, "kad", "00046"),
-			new Aircraft("Enola Guay", 1977, AircraftType.SEV_BLADE_PROP, "kad", "0099"),
-		};
+		// Aircraft [] aircrafts = {
+		// 	new Aircraft("Flying Saucer", 1999, AircraftType.TWO_ENG, "arc", "0001"),
+		// 	new Aircraft("Fat goose", 2005, AircraftType.FOUR_ENG, "arc", "0002"),
+		// 	new Aircraft("Stella ", 2010, AircraftType.FOUR_ENG, "zet", "0001"),
+		// 	new Aircraft("Sky Queen", 1980, AircraftType.SEV_BLADE_PROP, "kad", "0001"),
+		// 	new Aircraft("Robin & Batman", 2000, AircraftType.ONE_BLADE_PROP, "kad", "0005"),
+		// 	new Aircraft("Pink heavens", 1997, AircraftType.ONE_ENG, "kad", "0009"),
+		// 	new Aircraft("Dizzy wizzy", 2012, AircraftType.ONE_BLADE_PROP, "kad", "0022"),
+		// 	new Aircraft("Rainbow candy", 2008, AircraftType.TWO_ENG, "arc", "00021"),
+		// 	new Aircraft("Squared light", 2010, AircraftType.FOUR_ENG, "arc", "0033"),
+		// 	new Aircraft("Desiree", 2007, AircraftType.TWO_ENG, "zet", "00011"),
+		// 	new Aircraft("Candy crush", 2013, AircraftType.TWO_ENG, "zet", "00015"),
+		// 	new Aircraft("Pop Corn Wings", 1996, AircraftType.ONE_BLADE_PROP, "arc", "00045"),
+		// 	new Aircraft("Flying Kiss", 2001, AircraftType.ONE_BLADE_PROP, "arc", "00046"),
+		// 	new Aircraft("Flying French Kiss", 2009, AircraftType.ONE_ENG, "kad", "00046"),
+		// 	new Aircraft("Enola Guay", 1977, AircraftType.SEV_BLADE_PROP, "kad", "0099"),
+		// };
 		
 		//Arrays.sort(aircrafts, (a,b)->new java.util.Random().nextInt(10)-5); //shuffle
 		
-		AircraftID [] unknownIDs = {
-				new AircraftID("arc", "0000"),
-				new AircraftID("arc", "0003"),
-				new AircraftID("zed", "0001"),
-				new AircraftID("zet", "1000"),
-				new AircraftID("KAs", "0001"),
-				new AircraftID("kad", "0300")
-		};
+		AircraftID [] unknownIDs = new AircraftID[l];
+
+		for(int i=0; i<l;i++){
+			unknownIDs[i] = new AircraftID("arc", "000"+i);
+		}
+
+		// AircraftID [] unknownIDs = {
+		// 		new AircraftID("arc", "0000"),
+		// 		new AircraftID("arc", "0003"),
+		// 		new AircraftID("zed", "0001"),
+		// 		new AircraftID("zet", "1000"),
+		// 		new AircraftID("KAs", "0001"),
+		// 		new AircraftID("kad", "0300")
+		// };
 		
 		TreeMap<Company, TreeSet<Aircraft>> all = new TreeMap<Company, TreeSet<Aircraft>>();
 		
@@ -281,6 +312,8 @@ public class Test {
 		informar("... registeredAircrafts ha proporcionat els resultats esperats\n");
 		
 		finalitzar();
+		time = time - System.currentTimeMillis();
+		System.out.println("\nExecuted in " + time);
 	}
 
 }
